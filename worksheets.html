@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hormone Sorcery - Module 2 Worksheets</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0a0a0a;
+            color: #3a3a3a;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        /* Page structure for printing */
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto 40px;
+            background: #e8e2db;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            page-break-after: always;
+            position: relative;
+            padding: 60px;
+        }
+        
+        @media print {
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            body {
+                background: white;
+            }
+        }
+        
+        /* Cover Page Styles */
+        .cover-page {
+            background: linear-gradient(135deg, #1a0a1a 0%, #2a1a2a 100%);
+            color: #e8e2db;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .cover-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #9370db;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(147, 112, 219, 0.5);
+        }
+        
+        .cover-subtitle {
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            color: #daa520;
+            margin-bottom: 40px;
+        }
+        
+        .potion-graphics {
+            font-size: 2.5rem;
+            margin: 30px 0;
+            color: #9370db;
+        }
+        
+        .student-info {
+            margin-top: 60px;
+            border: 1px solid #9370db;
+            padding: 20px 40px;
+            border-radius: 4px;
+        }
+        
+        .student-info input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #daa520;
+            color: #e8e2db;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            padding: 5px;
+            margin: 10px;
+            width: 200px;
+        }
+        
+        /* Interior page header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #9370db;
+        }
+        
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #2b2826;
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-style: italic;
+            color: #9370db;
+            font-size: 1.2rem;
+        }
+        
+        /* Invocation page */
+        .invocation-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            text-align: center;
+            color: #3a2a20;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: rgba(147, 112, 219, 0.05);
+            border-radius: 4px;
+            line-height: 2;
+        }
+        
+        .writing-lines {
+            margin-top: 30px;
+        }
+        
+        .writing-line {
+            border-bottom: 1px solid #c9b79c;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        
+        /* Hormone chart styles */
+        .hormone-chart {
+            width: 100%;
+            height: 400px;
+            background: white;
+            border: 2px solid #9370db;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .chart-legend {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(147, 112, 219, 0.05);
+            border-radius: 4px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        
+        /* Journal prompts */
+        .journal-prompt {
+            margin-bottom: 35px;
+            padding: 20px;
+            background: rgba(147, 112, 219, 0.03);
+            border-left: 3px solid #9370db;
+        }
+        
+        .journal-prompt h3 {
+            color: #9370db;
+            margin-bottom: 15px;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        /* Herbal allies table */
+        .allies-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .allies-table th {
+            background: #9370db;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .allies-table td {
+            padding: 15px;
+            border-bottom: 1px solid #c9b79c;
+            background: white;
+        }
+        
+        .allies-table tr:hover td {
+            background: rgba(147, 112, 219, 0.05);
+        }
+        
+        /* Sigil creation */
+        .sigil-workspace {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .sigil-circle {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #9370db;
+            border-radius: 50%;
+            background: white;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .sigil-steps {
+            background: rgba(147, 112, 219, 0.05);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .sigil-steps ol {
+            padding-left: 20px;
+        }
+        
+        .sigil-steps li {
+            margin: 10px 0;
+        }
+        
+        /* Playlist customization */
+        .playlist-custom {
+            margin: 30px 0;
+        }
+        
+        .playlist-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 3px solid #9370db;
+        }
+        
+        .playlist-item label {
+            flex: 1;
+            color: #2b2826;
+            font-weight: 400;
+        }
+        
+        .playlist-item input {
+            flex: 2;
+            border: none;
+            border-bottom: 1px solid #c9b79c;
+            padding: 5px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Ritual checklist */
+        .ritual-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(147, 112, 219, 0.03);
+            border-left: 3px solid #9370db;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .ritual-item input[type="checkbox"] {
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        /* Body lab grid */
+        .body-lab-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .body-lab-table th {
+            background: #9370db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .body-lab-table td {
+            padding: 15px;
+            background: white;
+            border: 1px solid #c9b79c;
+            height: 50px;
+        }
+        
+        /* Closing reflection */
+        .reflection-space {
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(147, 112, 219, 0.03);
+            border-radius: 4px;
+            min-height: 300px;
+        }
+        
+        .closing-mantra {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a0a1a 0%, #2a1a2a 100%);
+            color: #daa520;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-style: italic;
+            letter-spacing: 2px;
+            line-height: 1.8;
+        }
+        
+        /* QR placeholder */
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 30px auto;
+            border: 2px solid #9370db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- COVER PAGE -->
+    <div class="page cover-page">
+        <div class="cover-title">Hormone Sorcery</div>
+        <div class="cover-subtitle">Spells of the Inner Alchemy</div>
+        <div class="potion-graphics">🧪 ⚗️ 🌙 ✨</div>
+        <div style="margin: 40px 0;">
+            <p style="font-size: 1.2rem; letter-spacing: 2px;">WORKSHEET PACK — MODULE 2</p>
+        </div>
+        <div class="student-info">
+            <div>
+                <label>Name: </label>
+                <input type="text" />
+            </div>
+            <div>
+                <label>Cycle Dates: </label>
+                <input type="text" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 1: INVOCATION COPY PAGE -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🕯 Invocation</div>
+            <div class="page-subtitle">Write this invocation by hand to open the ritual container</div>
+        </div>
+        
+        <div class="invocation-text">
+            Estrogen, glamour potion.<br>
+            Progesterone, dream spell.<br>
+            Testosterone, spark of fire.<br>
+            Cortisol, trickster shadow.<br>
+            <br>
+            My chemistry is my craft,<br>
+            My hormones are my familiars.
+        </div>
+        
+        <div class="writing-lines">
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 2: HORMONE CYCLE MAP -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🔬 Hormone Cycle Map</div>
+            <div class="page-subtitle">The Rise and Fall of Your Chemical Spells</div>
+        </div>
+        
+        <div class="hormone-chart">
+            <svg viewBox="0 0 600 350" style="width: 100%; height: 100%;">
+                <!-- Grid lines -->
+                <line x1="50" y1="300" x2="550" y2="300" stroke="#c9b79c" stroke-width="1"/>
+                <line x1="50" y1="50" x2="50" y2="300" stroke="#c9b79c" stroke-width="1"/>
+                
+                <!-- Day markers -->
+                <text x="50" y="320" font-size="12" fill="#2b2826">Day 1</text>
+                <text x="200" y="320" font-size="12" fill="#2b2826">Day 7</text>
+                <text x="300" y="320" font-size="12" fill="#2b2826">Day 14</text>
+                <text x="400" y="320" font-size="12" fill="#2b2826">Day 21</text>
+                <text x="550" y="320" font-size="12" fill="#2b2826">Day 28</text>
+                
+                <!-- Estrogen curve -->
+                <path d="M 50,250 Q 200,100 300,80 T 450,200 L 550,250" 
+                      fill="none" stroke="#ff69b4" stroke-width="3"/>
+                
+                <!-- Progesterone curve -->
+                <path d="M 50,280 L 300,280 Q 400,120 500,150 L 550,220" 
+                      fill="none" stroke="#9370db" stroke-width="3"/>
+                
+                <!-- Testosterone line -->
+                <path d="M 50,200 Q 300,180 550,190" 
+                      fill="none" stroke="#ff4500" stroke-width="2"/>
+                
+                <!-- Labels -->
+                <text x="30" y="30" font-size="14" fill="#2b2826" transform="rotate(-90 30 150)">Hormone Levels</text>
+            </svg>
+        </div>
+        
+        <div class="chart-legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff69b4;"></div>
+                <span>Estrogen</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9370db;"></div>
+                <span>Progesterone</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff4500;"></div>
+                <span>Testosterone</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #808080;"></div>
+                <span>Cortisol (varies)</span>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 4px;">
+            <h3 style="color: #9370db; margin-bottom: 15px;">Add your notes + how you feel each week:</h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 3: JOURNAL PROMPTS -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">✍️ Journal Prompts</div>
+            <div class="page-subtitle">Dialogue with Your Chemical Familiars</div>
+        </div>
+        
+        <div class="journal-prompt">
+            <h3>1. Which hormone feels like a friend right now? Which feels like a trickster?</h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+        
+        <div class="journal-prompt">
+            <h3>2. How does my mood/energy shift when estrogen rises?</h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+        
+        <div class="journal-prompt">
+            <h3>3. What foods or rituals soothe me when cortisol spikes?</h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 4: HERBAL & FOOD ALLIES -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🌿 Herbal & Food Allies</div>
+            <div class="page-subtitle">Nourishment for Your Hormonal Spells</div>
+        </div>
+        
+        <table class="allies-table">
+            <thead>
+                <tr>
+                    <th>Hormone</th>
+                    <th>Supporting Herbs/Foods</th>
+                    <th>I Will Try This Cycle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong style="color: #ff69b4;">Estrogen</strong></td>
+                    <td>Flaxseed, Soy, Red Clover, Pomegranate</td>
+                    <td><input type="checkbox" style="margin-right: 10px;">_________________</td>
+                </tr>
+                <tr>
+                    <td><strong style="color: #9370db;">Progesterone</strong></td>
+                    <td>Vitex, Wild Yams, Raspberry Leaf, Vitamin B6</td>
+                    <td><input type="checkbox" style="margin-right: 10px;">_________________</td>
+                </tr>
+                <tr>
+                    <td><strong style="color: #ff4500;">Testosterone</strong></td>
+                    <td>Maca, Oats, Zinc-rich foods, Tribulus</td>
+                    <td><input type="checkbox" style="margin-right: 10px;">_________________</td>
+                </tr>
+                <tr>
+                    <td><strong style="color: #808080;">Cortisol</strong></td>
+                    <td>Ashwagandha, Holy Basil, Rhodiola, Magnesium</td>
+                    <td><input type="checkbox" style="margin-right: 10px;">_________________</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div style="margin-top: 40px; padding: 25px; background: rgba(147, 112, 219, 0.05); border-radius: 4px;">
+            <h3 style="color: #9370db; margin-bottom: 15px;">My Hormone Support Plan:</h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 5: SIGIL CREATION -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🔮 Sigil Creation Worksheet</div>
+            <div class="page-subtitle">Transform Hormones into Sacred Symbols</div>
+        </div>
+        
+        <div class="sigil-steps">
+            <h3 style="color: #9370db; margin-bottom: 15px;">Steps to Create Your Hormone Sigil:</h3>
+            <ol>
+                <li>Write the hormone's name (e.g., ESTROGEN)</li>
+                <li>Write its role/desire (e.g., ENERGY + GLOW)</li>
+                <li>Cross out all repeating letters</li>
+                <li>Arrange remaining letters into a design</li>
+                <li>Draw final sigil in the circle below</li>
+                <li>Decorate with moon/sun/star motifs</li>
+            </ol>
+        </div>
+        
+        <div class="sigil-workspace">
+            <div>
+                <h4 style="text-align: center; color: #9370db;">Estrogen Sigil</h4>
+                <div class="sigil-circle"></div>
+            </div>
+            <div>
+                <h4 style="text-align: center; color: #9370db;">Progesterone Sigil</h4>
+                <div class="sigil-circle"></div>
+            </div>
+            <div>
+                <h4 style="text-align: center; color: #9370db;">Testosterone Sigil</h4>
+                <div class="sigil-circle"></div>
+            </div>
+            <div>
+                <h4 style="text-align: center; color: #9370db;">Cortisol Sigil</h4>
+                <div class="sigil-circle"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 6: PLAYLIST PAGE -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🎶 Playlist Page</div>
+            <div class="page-subtitle">Soundtrack for Your Chemical Symphony</div>
+        </div>
+        
+        <div class="qr-placeholder">
+            <p style="text-align: center; color: #9370db;">QR Code to<br>"Hormone Sorcery"<br>Spotify Playlist</p>
+        </div>
+        
+        <div class="playlist-custom">
+            <h3 style="color: #9370db; margin-bottom: 20px; text-align: center;">Create Your Hormone Soundtrack:</h3>
+            
+            <div class="playlist-item">
+                <label>Song for Estrogen Glow →</label>
+                <input type="text" placeholder="Track that makes you feel radiant">
+            </div>
+            
+            <div class="playlist-item">
+                <label>Song for Progesterone Dreams →</label>
+                <input type="text" placeholder="Track for deep, dreamy states">
+            </div>
+            
+            <div class="playlist-item">
+                <label>Song for Testosterone Spark →</label>
+                <input type="text" placeholder="Track that ignites your fire">
+            </div>
+            
+            <div class="playlist-item">
+                <label>Song for Cortisol Trickster →</label>
+                <input type="text" placeholder="Track that calms the chaos">
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; padding: 20px; background: rgba(147, 112, 219, 0.05); border-radius: 4px;">
+            <h4 style="color: #9370db; margin-bottom: 10px;">Notes on Music & Mood:</h4>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 7: RITUAL CHECKLIST -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🪄 Ritual Checklist</div>
+            <div class="page-subtitle">Hormone Sorcery Practices</div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div>
+                <h4 style="color: #2b2826;">Sigil-Making for Each Hormone</h4>
+                <p style="color: #6a6560;">Create and charge sigils from page 5. Place on altar or carry with you.</p>
+            </div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div>
+                <h4 style="color: #2b2826;">Morning Hormone Check-In</h4>
+                <p style="color: #6a6560;">Track mood/energy daily. Note which hormone feels dominant.</p>
+            </div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div>
+                <h4 style="color: #2b2826;">Biohacking Ritual</h4>
+                <p style="color: #6a6560;">Choose one food/herb from page 4. Consume mindfully with intention.</p>
+            </div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div>
+                <h4 style="color: #2b2826;">Moon-Phase Ritual Aligned with Hormone Peak</h4>
+                <p style="color: #6a6560;">Track when hormones peak. Create ritual (bath, dance, meditation) to honor.</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 4px;">
+            <h4 style="color: #9370db; margin-bottom: 15px;">Additional Notes:</h4>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 8: BODY LAB WORKSHEET -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🧪 Body Lab Worksheet</div>
+            <div class="page-subtitle">Track Your Hormone Experiments</div>
+        </div>
+        
+        <table class="body-lab-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Hormone</th>
+                    <th>Symptom Felt</th>
+                    <th>Food/Herb Tried</th>
+                    <th>Ritual Attempted</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div style="margin-top: 30px; padding: 20px; background: rgba(147, 112, 219, 0.05); border-radius: 4px;">
+            <h4 style="color: #9370db; margin-bottom: 15px;">Patterns I Notice:</h4>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 9: CLOSING REFLECTION -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🕯 Closing Reflection</div>
+            <div class="page-subtitle">Integration of Hormone Wisdom</div>
+        </div>
+        
+        <div class="reflection-space">
+            <h3 style="color: #9370db; margin-bottom: 20px; font-style: italic;">
+                What hormone ruled my month?
+            </h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            
+            <h3 style="color: #9370db; margin: 30px 0 20px 0; font-style: italic;">
+                How can I work with it, not against it?
+            </h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            
+            <h3 style="color: #9370db; margin: 30px 0 20px 0; font-style: italic;">
+                What hormone wisdom will I carry forward?
+            </h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+        
+        <div class="closing-mantra">
+            My chemistry is my spell.<br>
+            My hormones are not my enemy.<br>
+            They are my familiars.
+        </div>
+    </div>
+</body>
+</html>
